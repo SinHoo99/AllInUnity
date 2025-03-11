@@ -82,12 +82,12 @@ public class DataManager : MonoBehaviour
 
     public void Initializer()
     {
-        ContainPickaxeData();
+      //  ContainPickaxeData();
     }
 
-    #region PickaxeData
+    #region ¿¹½Ã
 
-    public Dictionary<PickaxeID, PickaxeData> PickaxeDatas = new Dictionary<PickaxeID, PickaxeData>();
+    /*public Dictionary<PickaxeID, PickaxeData> PickaxeDatas = new Dictionary<PickaxeID, PickaxeData>();
 
     public void ContainPickaxeData()
     {
@@ -111,7 +111,7 @@ public class DataManager : MonoBehaviour
             pickaxeData.PickaxeAuraImage = Resources.Load<SpriteAtlas>(ResourcesPath.CSVSprites).GetSprite(datas[Data.PickaxeAuraImage]);
             PickaxeDatas.Add(pickaxeData.ID, pickaxeData);
         }
-    }
+    }*/
 
     #endregion
     public List<ItemInfoData> SplitItemDatas(string data)

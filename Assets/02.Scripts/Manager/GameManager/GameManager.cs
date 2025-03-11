@@ -66,7 +66,8 @@ public class GameManager : Singleton<GameManager>
 
     public PickaxeData GetPickaxeData(PickaxeID id)
     {
-        return DataManager.PickaxeDatas[id];
+        // return DataManager.PickaxeDatas[id];
+        return null;
     }
 
     #endregion
