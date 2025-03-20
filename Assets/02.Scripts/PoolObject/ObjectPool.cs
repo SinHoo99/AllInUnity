@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool : Singleton<ObjectPool>
 {
     public Dictionary<string, List<PoolObject>> PoolDictionary;
 
-    private void Awake()
+    protected override void Awake()
     {
         PoolDictionary = new Dictionary<string, List<PoolObject>>();
     }

@@ -7,14 +7,6 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject GameOverPopup;
-
-    public GameObject LoadingUI;
-    public Slider ProgressBar;
-    public TextMeshProUGUI ProgressText;
-
-    public int StageNum;
-
     protected override void Awake()
     {
         if (IsDuplicates()) return;
@@ -24,8 +16,8 @@ public class GameManager : Singleton<GameManager>
         // 실제 모바일 테스트 시 30, 60 비교해보기
         Application.targetFrameRate = 60;
 
+      //  DataManager.Initialize();
         SoundManager.Initializer();
-        DataManager.Initializer();
     }
 
     #region 경고 알림
@@ -37,7 +29,7 @@ public class GameManager : Singleton<GameManager>
     {
         AlertText.text = msg;
         AlertObject.SetActive(true);
-        PlaySFX(SFX.Alert);
+       // PlaySFX(SFX.Alert);
 
         if (_alertCoroutine != null) StopCoroutine(_alertCoroutine);
         _alertCoroutine = StartCoroutine(AlertCo());
@@ -51,24 +43,7 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     #region 데이터
-
     [SerializeField] private DataManager DataManager;
-
-    public Color GetGradeColor(Grade grade)
-    {
-        return DataManager.GradeColor[(int)grade];
-    }
-
-    public Color GetHPColor(HPColor color)
-    {
-        return DataManager.HPColor[(int)color];
-    }
-
-    public PickaxeData GetPickaxeData(PickaxeID id)
-    {
-        // return DataManager.PickaxeDatas[id];
-        return null;
-    }
 
     #endregion
 
@@ -77,7 +52,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private SaveManager SaveManager;
 
     public PlayerData NowPlayerData;
-    public void SavePlayerData(Vector3 pos, Quaternion rot)
+    public void SavePlayerData()
     {
         SaveManager.SaveData(NowPlayerData);
     }
@@ -115,32 +90,13 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public UserData NowUserData;
-    public void SaveUserData()
+    public void SaveAllData()
     {
-        SaveManager.SaveData(NowUserData);
-    }
-    public bool LoadUserData()
-    {
-        if (SaveManager.TryLoadData(out UserData data))
-        {
-            NowUserData = data;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public void SaveAllData(Vector3 playerPos, Quaternion PlayerRot)
-    {
-        SavePlayerData(playerPos, PlayerRot);
-        SaveUserData();
+        SavePlayerData();
     }
     public bool LoadAllData() // todo: 수정 필요
     {
-        if(LoadPlayerData() && LoadUserData())
+        if(LoadPlayerData())
         {
             return true;
         }

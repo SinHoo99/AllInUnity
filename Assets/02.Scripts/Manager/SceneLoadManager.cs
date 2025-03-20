@@ -1,9 +1,15 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoadManager : MonoBehaviour
 {
+    public GameObject LoadingUI;
+    public Slider ProgressBar;
+    public TextMeshProUGUI ProgressText;
+
     private static int _nextSceneNumber;
 
     private void Start()
@@ -21,7 +27,7 @@ public class SceneLoadManager : MonoBehaviour
     private IEnumerator LoadSceneAsync()
     {
         // 로딩 UI 활성화
-        GameManager.Instance.LoadingUI.SetActive(true);
+        LoadingUI.SetActive(true);
 
         yield return null;
 
@@ -40,8 +46,8 @@ public class SceneLoadManager : MonoBehaviour
             // 0.9로 나눠주면 진행 상황을 0% ~ 100%까지 모두 반영할 수 있다.
             #endregion
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
-            GameManager.Instance.ProgressBar.value = progress;
-            GameManager.Instance.ProgressText.text = $"Loading...{Mathf.FloorToInt(progress * 100)}%";
+            ProgressBar.value = progress;
+            ProgressText.text = $"Loading...{Mathf.FloorToInt(progress * 100)}%";
 
             // 로딩이 완료되면 씬 활성화
             if (asyncLoad.progress >= 0.9f)

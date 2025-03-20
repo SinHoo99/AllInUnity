@@ -397,7 +397,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5896190514740461654}
-  - component: {fileID: 2785803045434625104}
   m_Layer: 5
   m_Name: BackgroundScroll
   m_TagString: Untagged
@@ -426,21 +425,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2785803045434625104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4940784572014186396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f23df19ae3faf45b9d94207bd648b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backgroundA: {fileID: 5238035018479999209}
-  _backgroundB: {fileID: 5202874403668477723}
-  _scrollSpeed: 150
 --- !u!1 &6540546049561139845
 GameObject:
   m_ObjectHideFlags: 0
