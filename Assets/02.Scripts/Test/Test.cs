@@ -8,4 +8,9 @@ public class Test : MonoBehaviour
     {
        SceneLoadManager.LoadScene(2);
     }
+
+    public void GoStartScene()
+    {
+        SceneLoadManager.LoadScene(0);
+    }
 }
