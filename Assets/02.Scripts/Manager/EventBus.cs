@@ -54,10 +54,12 @@ public class PlayerDieEvent
 
 public class Player : MonoBehaviour
 {
+    private float HP;
     // 이벤트 발행
     void Die()
     {
-        EventBus.Publish(new PlayerDieEvent("Player1"));
+        if (HP < 0)
+            EventBus.Publish(new PlayerDieEvent("Player1"));
     }
 }
 
@@ -118,15 +120,15 @@ public class BObject : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.Subscribe<AObjectEvent>(OnBobjectEvent);
+        EventBus.Subscribe<BObjectEvent>(OnBobjectEvent);
     }
 
     private void OnDisable()
     {
-        EventBus.Unsubscribe<AObjectEvent>(OnBobjectEvent);
+        EventBus.Unsubscribe<BObjectEvent>(OnBobjectEvent);
     }
 
-    void OnBobjectEvent(AObjectEvent e)
+    void OnBobjectEvent(BObjectEvent e)
     {
         Debug.Log("플레이어 사망" + e.playerName);
         BObjTxt.text = e.playerName;
@@ -140,15 +142,15 @@ public class CObject : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.Subscribe<AObjectEvent>(OnCobjectEvent);
+        EventBus.Subscribe<CObjectEvent>(OnCobjectEvent);
     }
 
     private void OnDisable()
     {
-        EventBus.Unsubscribe<AObjectEvent>(OnCobjectEvent);
+        EventBus.Unsubscribe<CObjectEvent>(OnCobjectEvent);
     }
 
-    void OnCobjectEvent(AObjectEvent e)
+    void OnCobjectEvent(CObjectEvent e)
     {
         Debug.Log("플레이어 사망" + e.playerName);
         CObjTxt.text = e.playerName;
