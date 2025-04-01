@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
@@ -20,6 +22,7 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Initializer();
     }
 
+
     #region 경고 알림
 
     public GameObject AlertObject;
@@ -31,12 +34,17 @@ public class GameManager : Singleton<GameManager>
         AlertObject.SetActive(true);
        // PlaySFX(SFX.Alert);
 
-        if (_alertCoroutine != null) StopCoroutine(_alertCoroutine);
-        _alertCoroutine = StartCoroutine(AlertCo());
+       /* if (_alertCoroutine != null) StopCoroutine(_alertCoroutine);
+        _alertCoroutine = StartCoroutine(AlertCo());*/
     }
-    private IEnumerator AlertCo()
+   /* private IEnumerator AlertCo()
     {
         yield return new WaitForSecondsRealtime(2f);
+        AlertObject.SetActive(false);
+    }*/
+    
+    public void HideAlert()
+    {
         AlertObject.SetActive(false);
     }
 
@@ -129,4 +137,12 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
+
+    private IEnumerator WaitForTouch()
+    {
+        ShowAlert("Touch to Start");
+        yield return new WaitUntil(() => Input.touchCount > 0 || Input.GetMouseButtonDown(0));
+
+        HideAlert();
+    }
 }
