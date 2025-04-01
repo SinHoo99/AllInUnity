@@ -1,4 +1,4 @@
-/*using UnityEngine;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -76,8 +76,8 @@ public class SettingPopup : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            GM.SaveAllData(GM.Player.transform.position, GM.Player.transform.rotation);
-            GameManager.Instance.PlaySFX(SFX.Click);
+          /*  GM.SaveAllData(GM.Player.transform.position, GM.Player.transform.rotation);
+            GameManager.Instance.PlaySFX(SFX.Click);*/
 
             SceneLoadManager.LoadScene(0);
         }
@@ -94,15 +94,14 @@ public class SettingPopup : MonoBehaviour
         if (gameObject.activeInHierarchy)
         {
             gameObject.SetActive(false);
-            GameManager.Instance.PlaySFX(SFX.Click);
+            //GameManager.Instance.PlaySFX(SFX.Click);
         }
         else
         {
             gameObject.SetActive(true);
-            GameManager.Instance.PlaySFX(SFX.Click);
+           // GameManager.Instance.PlaySFX(SFX.Click);
         }
     }
 
     #endregion
 }
-*/
