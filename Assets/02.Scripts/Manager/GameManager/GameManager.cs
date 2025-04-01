@@ -20,7 +20,6 @@ public class GameManager : Singleton<GameManager>
 
       //  DataManager.Initialize();
         SoundManager.Initializer();
-        Time.timeScale = 0f;
     }
 
 

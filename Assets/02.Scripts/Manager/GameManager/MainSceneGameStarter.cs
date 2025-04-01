@@ -12,6 +12,7 @@ public class MainSceneGameStarter : MonoBehaviour
     private void Start()
     {
         StartBlink();
+        Time.timeScale = 0;
     }
     public void HidePannel()
     {
