@@ -91,14 +91,14 @@ public class SettingPopup : MonoBehaviour
 
     public void Toggle()
     {
-        if (gameObject.activeInHierarchy)
+        if (this.gameObject.activeInHierarchy)
         {
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             //GameManager.Instance.PlaySFX(SFX.Click);
         }
         else
         {
-            gameObject.SetActive(true);
+            this.gameObject.SetActive(true);
            // GameManager.Instance.PlaySFX(SFX.Click);
         }
     }
