@@ -119,12 +119,12 @@ public class GameManager : Singleton<GameManager>
 
     public void PlayBGM(BGM target)
     {
-        SoundManager.PlayBGM(target);
+        //SoundManager.PlayBGM(target);
     }
 
     public void PlaySFX(SFX target)
     {
-        SoundManager.PlaySFX(target);
+        //SoundManager.PlaySFX(target);
     }
 
     #endregion

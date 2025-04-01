@@ -7,6 +7,6 @@ public class SFXSliderPointer : MonoBehaviour, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-      //  GM.PlaySFX(SFX.Click);
+        GM.PlaySFX(SFX.Click);
     }
 }

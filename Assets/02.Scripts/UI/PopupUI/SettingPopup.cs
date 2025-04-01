@@ -76,8 +76,8 @@ public class SettingPopup : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-          /*  GM.SaveAllData(GM.Player.transform.position, GM.Player.transform.rotation);
-            GameManager.Instance.PlaySFX(SFX.Click);*/
+            /*  GM.SaveAllData(GM.Player.transform.position, GM.Player.transform.rotation);
+              GameManager.Instance.PlaySFX(SFX.Click);*/
 
             SceneLoadManager.LoadScene(0);
         }
@@ -94,12 +94,12 @@ public class SettingPopup : MonoBehaviour
         if (this.gameObject.activeInHierarchy)
         {
             this.gameObject.SetActive(false);
-            //GameManager.Instance.PlaySFX(SFX.Click);
+            GameManager.Instance.PlaySFX(SFX.Click);
         }
         else
         {
             this.gameObject.SetActive(true);
-           // GameManager.Instance.PlaySFX(SFX.Click);
+            GameManager.Instance.PlaySFX(SFX.Click);
         }
     }
 

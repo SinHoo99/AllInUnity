@@ -6,11 +6,11 @@ public enum SoundType
 
 public enum BGM
 {
-
+    Start
 }
 public enum SFX
 {
-    // Player
+    Click
 }
 
 public enum DummyDataEnum 
