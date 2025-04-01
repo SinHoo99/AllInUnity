@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
 
       //  DataManager.Initialize();
         SoundManager.Initializer();
+        Time.timeScale = 0f;
     }
 
 
@@ -136,14 +137,5 @@ public class GameManager : Singleton<GameManager>
     }
 
     #endregion
-    public void StartGame()
-    {
-        Debug.Log("게임 시작!");
 
-        // 예시: 플레이어 움직임 허용
-        // Player.Instance.EnableControl();
-
-        // 예시: 점수나 타이머 시작
-        // ScoreManager.Instance.Begin();
-    }
 }
