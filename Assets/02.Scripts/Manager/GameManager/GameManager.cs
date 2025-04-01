@@ -136,13 +136,14 @@ public class GameManager : Singleton<GameManager>
     }
 
     #endregion
-
-
-    private IEnumerator WaitForTouch()
+    public void StartGame()
     {
-        ShowAlert("Touch to Start");
-        yield return new WaitUntil(() => Input.touchCount > 0 || Input.GetMouseButtonDown(0));
+        Debug.Log("게임 시작!");
 
-        HideAlert();
+        // 예시: 플레이어 움직임 허용
+        // Player.Instance.EnableControl();
+
+        // 예시: 점수나 타이머 시작
+        // ScoreManager.Instance.Begin();
     }
 }

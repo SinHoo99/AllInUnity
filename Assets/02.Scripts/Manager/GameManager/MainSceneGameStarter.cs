@@ -16,6 +16,7 @@ public class MainSceneGameStarter : MonoBehaviour
     public void HidePannel()
     {
         gameObject.SetActive(false);
+        //GameManager.Instance.StartGame();
     }
     public void StartBlink()
     {
